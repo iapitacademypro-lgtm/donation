@@ -262,7 +262,7 @@ export default function DonatePage() {
     meal: {
       type: "meal",
       title: "Serve a Meal",
-      image: "/meal.jpeg?height=400&width=600&text=Serve+a+Meal",
+      image: "/meal.jpeg",
       description: "Provide nutritious meals to those in need",
       pricePerUnit: 1,
       unit: "person",
@@ -291,21 +291,21 @@ export default function DonatePage() {
     sadqah: {
       type: "sadqah",
       title: "Sadaqah / lillah ",
-      image: "/sadaqah.jpeg?height=400&width=600&text=Sadqah",
+      image: "/sadaqah.jpeg",
       description: "Give voluntary charity to help those in need",
       minAmount: 1,
     },
     zakah: {
       type: "zakah",
       title: "Zakat / Fitra",
-      image: "/zakat.jpeg?height=400&width=600&text=Zakah",
+      image: "/zakat.jpeg",
       description: "Fulfill your obligation of Zakah",
       percentage: 2.5,
     },
     "water-handpump": {
       type: "water-handpump",
       title: "Handpump",
-      image: "/water.jpeg?height=400&width=600&text=Water+Handpump",
+      image: "/water.jpeg",
       description: "Provide clean water access through handpumps",
       fixedAmount: 2200,
     },
@@ -323,7 +323,7 @@ export default function DonatePage() {
     emergency: {
       type: "emergency",
       title: "Emergency Relief",
-      image: "/emergency.jpeg?height=400&width=600&text=Emergency+Relief",
+      image: "/emergency.jpeg",
       description: "No emergency situations in Africa for now",
     },
   }

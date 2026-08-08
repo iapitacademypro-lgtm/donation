@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faUser } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
 import { useUser, SignInButton, UserButton } from "@clerk/nextjs";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
@@ -33,12 +32,10 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex items-center flex-shrink-0">
           <Link href="/">
-            <Image
+            <img
               src="/FGRFLOGO.png"
               alt="Logo"
-              width={60}
-              height={60}
-              className="mr-2 object-contain"
+              className="mr-2 h-10 w-auto max-w-[110px] object-contain"
             />
           </Link>
         </div>
@@ -119,12 +116,10 @@ const Navbar = () => {
             >
               <div>
                 <div className="flex items-center px-6 py-6">
-                  <Image
+                  <img
                     src="/FGRFLOGO.png"
                     alt="Logo"
-                    width={60}
-                    height={60}
-                    className="h-10 mr-2 object-contain"
+                    className="mr-2 h-10 w-auto max-w-[110px] object-contain"
                   />
                 </div>
 

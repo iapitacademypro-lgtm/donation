@@ -24,29 +24,39 @@ export default function DonateMonthlyPage() {
   return (
     <div className="relative dark:bg-white">
       {/* HERO SECTION */}
-      <div className="relative h-[280px] sm:h-[360px] md:h-[480px] w-full overflow-hidden">
-        <Image
+      <div className="relative h-[360px] sm:h-[520px] md:h-[680px] w-full overflow-hidden">
+        <img
           src="/top2.png"
           alt="Mother with child receiving food aid"
-          fill
-          priority
-          className="object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+          style={{ zIndex: 0 }}
         />
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl text-white"
-          >
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 leading-tight">
-              Become a Monthly Hero
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl ">
-              Join a community making a real difference — one meal at a time.
-            </p>
-          </motion.div>
-        </div>
+
+        <div
+          className="absolute inset-0"
+          
+        />
+
+     <div
+  className="pt-24 absolute inset-0 flex items-end justify-center px-4 pb-16 text-center"
+  style={{ zIndex: 10 }}
+>
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    style={{ backgroundColor: "rgba(0,0,0,0.35)" }}
+    className="w-full max-w-2xl rounded-xl px-4 py-5 text-white"
+  >
+    <h1 className="text-2xl font-black drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)] sm:text-4xl md:text-5xl">
+      Become a Monthly Hero
+    </h1>
+    <p className="mt-2 text-xs drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] sm:text-sm md:text-lg">
+      Join a community making a real difference — one meal at a time.
+    </p>
+  </motion.div>
+</div>
       </div>
 
       {/* WHY JOIN SECTION */}
@@ -65,7 +75,7 @@ export default function DonateMonthlyPage() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 text-white"
+          className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 text-black"
         >
           {[
             {
@@ -87,7 +97,7 @@ export default function DonateMonthlyPage() {
             <motion.div
               key={idx}
               variants={fadeUp}
-              className="rounded-2xl border border-gray-200 dark:border-gray bg-white dark:bg-gray-900 p-6 text-center shadow-sm hover:shadow-md transition text-white"
+              className="rounded-2xl border border-gray-200 dark:border-gray bg-white dark:bg-gray-900 p-6 text-center shadow-sm hover:shadow-md transition text-black"
             >
               <div className="mb-4 flex justify-center">
                 <Image
@@ -118,6 +128,8 @@ export default function DonateMonthlyPage() {
               src="/sadqah.jpg"
               alt="Video placeholder"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              loading="eager"
               className="object-cover"
             />
           </motion.div>
@@ -181,7 +193,7 @@ export default function DonateMonthlyPage() {
             {
               name: "Ahmed Shaikh",
               quote:
-                "What a simple idea. You can donate as little as one meal or monthly. You choose where the meal goes or let them decide where it’s needed most.",
+                "What a simple idea. You can donate as little as one meal or monthly. You choose where the meal goes or let them decide where it's needed most.",
               note: "on how easy FGRF is to use",
               color: "bg-orange-100 dark:bg-orange-100",
             },

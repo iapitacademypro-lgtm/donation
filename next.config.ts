@@ -8,6 +8,8 @@ const nextConfig = {
         pathname: '/images/**',
       },
     ],
+    // Ensure image optimizer serves images inline instead of as attachments
+    contentDispositionType: 'inline',
   },
   typescript: {
     ignoreBuildErrors: true,

@@ -65,12 +65,13 @@ export default function SupportPage() {
     },
 
     {
-      id: "animals",
+      id: "sadqah",
       title: "CATTLE SADAQAH",
       description: "Donate livestock to support families",
       image: "/qurbani.jpeg",
       alt: "Animal donation image",
     },
+   
     {
       id: "sadqah",
       title: "SADAQAH / LILLAH",
@@ -123,31 +124,30 @@ export default function SupportPage() {
 
       {/* Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {donationCards.map((card) => (
+        {donationCards.map((card, index) => (
           <Card
-            key={card.id}
+            key={`${card.id}-${index}`}
             className="overflow-hidden flex flex-col border border-blue-100 rounded-2xl shadow-sm hover:shadow-lg transition-shadow bg-white"
           >
             {/* Image Section */}
             <div className="relative aspect-[4/3] w-full bg-white">
               {card.images ? (
-                // Auto-sliding image for Jamia project
-                <Image
+                // Temp: use plain <img> to verify client rendering
+                <img
                   key={jamiaIndex}
-                  src={card.images[jamiaIndex]}
+                  src={card.images[jamiaIndex % card.images.length]}
                   alt={card.alt}
-                  fill
-                  className="object-contain p-4 transition-opacity duration-700"
+                  loading={index < 3 ? "eager" : "lazy"}
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
               ) : (
-                <Image
+                <img
                   src={card.image || "/placeholder.svg"}
                   alt={card.alt}
-                  fill
-                  className="object-contain p-4"
+                  loading={index < 3 ? "eager" : "lazy"}
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-b from-blue-100/10 to-blue-200/20 pointer-events-none" />
             </div>
 
             {/* Title */}

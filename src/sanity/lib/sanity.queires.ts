@@ -1,15 +1,25 @@
 import { client } from "./client"
 
 export async function getAllPosts() {
-  return await client.fetch(`
-    *[_type == "post"] | order(_createdAt desc){
-      title,
-      "slug": slug.current,
-      "image": mainImage.asset->url,
-      excerpt,
-      _createdAt
+  try {
+    return await client.fetch(`
+      *[_type == "post"] | order(_createdAt desc){
+        title,
+        "slug": slug.current,
+        "image": mainImage.asset->url,
+        excerpt,
+        _createdAt
+      }
+    `)
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error)
+    if (message.includes("Dataset") || message.includes("not found")) {
+      console.warn(`Sanity blog fetch skipped: ${message}`)
+    } else {
+      console.error("Sanity getAllPosts failed:", message)
     }
-  `)
+    return []
+  }
 }
 
 export async function getPost(slug: string) {
@@ -19,16 +29,22 @@ export async function getPost(slug: string) {
       "slug": slug.current,
       "mainImage": mainImage.asset->url,
       body,
+      excerpt,
       _createdAt
     }
   `
 
-  const post = await client.fetch(query, { slug })
+  try {
+    const post = await client.fetch(query, { slug })
 
-  // fallback for missing mainImage
-  if (post && !post.mainImage) {
-    post.mainImage = undefined
+    // fallback for missing mainImage
+    if (post && !post.mainImage) {
+      post.mainImage = undefined
+    }
+
+    return post || null
+  } catch (error) {
+    console.error(`Sanity getPost failed for slug=${slug}:`, error)
+    return null
   }
-
-  return post || null
 }

@@ -6,34 +6,41 @@ import { motion } from "framer-motion"
 const HeroSection = () => {
   return (
     <section className="relative w-full min-h-screen flex flex-col md:flex-row bg-white overflow-hidden">
-      {/* Mobile Image - Fixed positioning and spacing */}
+      {/* Mobile Image */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="block md:hidden w-full h-64 relative mb-0"
+        className="block md:hidden w-full h-56 sm:h-64 relative"
       >
-        <Image src="/images12.png" alt="Mobile Hero" fill className="object-contain" priority />
+        <Image
+          src="/images12.png"
+          alt="Mobile Hero"
+          fill
+          sizes="(max-width: 640px) 100vw, 50vw"
+          priority
+          className="object-contain"
+        />
       </motion.div>
 
-      {/* Text Content - Aligned to the left side */}
+      {/* Text Content */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-        className="relative z-10 flex-1 flex flex-col justify-center items-center md:items-start px-6 sm:px-10 md:pl-16 py-8 md:py-0 -mt-24 max-w-full md:max-w-2xl w-full md:w-1/2 text-center md:text-left"
+        className="relative z-10 flex-1 flex flex-col justify-center items-center md:items-start px-5 sm:px-6 md:pl-16 py-8 md:py-0 mt-0 md:mt-0 max-w-full md:max-w-2xl w-full md:w-1/2 text-center md:text-left"
       >
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+        <h1 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-3">
           Give Hope
           <br />
           <span className="text-blue-900">Give Sadaqah</span>
         </h1>
 
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-800 mb-6 leading-tight">
+        <h2 className="text-base sm:text-2xl lg:text-3xl font-semibold text-gray-800 mb-4 leading-snug">
           One act of kindness. Countless rewards.
         </h2>
 
-        <p className="text-base sm:text-lg text-[#3a4a5d] mb-8 max-w-xl leading-relaxed">
+        <p className="text-sm sm:text-lg text-[#3a4a5d] mb-6 max-w-xl leading-relaxed">
           Transform lives through your Sadaqah. Every donation brings nourishment to the hungry, clean water to the
           thirsty, and hope to the forgotten. Give for the sake of Allah — and let your charity echo in both this life
           and the next.
@@ -41,13 +48,13 @@ const HeroSection = () => {
 
         <Link
           href="/support"
-          className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold text-base sm:text-lg px-8 py-4 rounded-md shadow-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 w-fit"
+          className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold text-base sm:text-lg px-8 py-3 sm:py-4 rounded-md shadow-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 w-fit"
         >
           Donate Now
         </Link>
       </motion.div>
 
-      {/* Desktop Image - Aligned to the right and covers 50% width */}
+      {/* Desktop Image */}
       <motion.div
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -58,8 +65,9 @@ const HeroSection = () => {
           src="/hero.png"
           alt="Desktop Hero"
           fill
-          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
           priority
+          className="object-cover"
         />
       </motion.div>
     </section>
