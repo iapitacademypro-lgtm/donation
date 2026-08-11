@@ -19,7 +19,7 @@ export default function BannerPage() {
           fill
           sizes="(max-width: 640px) 100vw, 1200px"
           priority
-          className="object-cover object-center"
+          className="object-contain object-center"
         />
       </motion.div>
 
@@ -36,26 +36,26 @@ export default function BannerPage() {
           fill
           sizes="(max-width: 640px) 100vw, 1200px"
           priority
-          className="object-cover object-center"
+          className="object-contain object-center"
         />
       </motion.div>
 
       {/* Overlay Content (same for all screens) */}
       <div className="absolute inset-0 flex items-end justify-center pb-12 text-center p-4 sm:p-8 z-10">
-   <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 1, duration: 1 }}
- style={{ backgroundColor: "rgba(0,0,0,0.15)" }}
-  className="max-w-3xl rounded-xl border border-white/20 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.18)] "
->
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 1 }}
+          style={{ backgroundColor: "rgba(0,0,0,0.15)" }}
+          className="max-w-3xl rounded-xl border border-white/20 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.18)] "
+        >
           <p className="text-lg font-semibold italic leading-relaxed text-white sm:text-xl md:text-2xl">
             "The example of those who spend their wealth in the way of Allah is
             like a seed which grows seven spikes; in each spike is a hundred
             grains. Allah multiplies for whom He wills."
           </p>
           <p className="mt-4 text-sm font-bold text-white sm:text-base">
-            — Qur’an 2:261
+            — Qur'an 2:261
           </p>
         </motion.div>
       </div>

@@ -109,14 +109,14 @@ const AfricaAidSection = () => {
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 200 }}
         >
-          <Image
-            src="/qurbani20263.png"
-          alt="Qurbani Operation 2026 - Malawi"
-            fill
-            priority
-            className="object-fit w-full h-full"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
+        <Image
+  src="/images12.png"
+  alt="Sadaqah donation image"
+  fill
+  priority
+  className="object-fill w-full h-full bg-[#f4f7f8]"
+  sizes="(max-width: 1024px) 100vw, 50vw"
+/>
           <motion.div
             className="absolute bottom-0 left-0 bg-green-600 text-white font-semibold px-6 py-2 rounded-tr-2xl text-sm sm:text-base shadow-md"
             initial={{ x: -30, opacity: 0 }}
@@ -124,7 +124,7 @@ const AfricaAidSection = () => {
             transition={{ delay: 0.3, duration: 0.5 }}
             viewport={{ once: true }}
           >
-             Perform Your Qurbani with FGRF | 2026
+            Give Your Sadaqah with FGRF | 2026
           </motion.div>
         </motion.div>
 
@@ -136,15 +136,16 @@ const AfricaAidSection = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}
         >
+          {/* Qurbani Operation 2026 - Malawi */}
           <h3 className="text-2xl sm:text-3xl font-bold text-[#0f2b46] mb-4">
-           Qurbani Operation 2026 - Malawi
+            SADAQAH / LILLAH
           </h3>
           <p className="text-[#546e7a] text-base sm:text-lg mb-6 leading-relaxed">
-             Perform your Qurbani with FGRF and share the blessings of Eid with families in Malawi. Each sacrifice is conducted under the supervision of qualified Ulama, ensuring it is carried out in accordance with Shariah. Your Qurbani delivers nourishment, compassion, and hope to those in need.  
-             </p>
+            Give your voluntary Sadaqah with FGRF and support families in need. Your donation brings essential relief, kindness, and hope to vulnerable communities.
+          </p>
           <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
             <Link
-              href="/donate/animals"
+              href="/donate/sadqah"
               className="inline-block px-6 py-3 bg-green-700 text-white rounded-md font-semibold text-sm sm:text-base hover:bg-green-900 transition"
             >
               Donate Now

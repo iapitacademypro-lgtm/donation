@@ -36,7 +36,7 @@ const NewsletterSection = () => {
         >
           <div className="relative w-64 h-64 sm:w-72 sm:h-72">
             <Image
-              src="/foodimg.png"
+              src="/sadaq1.png"
               alt="Qurbani Illustration"
               width={400}
               height={400}

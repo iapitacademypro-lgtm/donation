@@ -288,6 +288,16 @@ export default function DonatePage() {
       minAmount: 1,  
       
 },
+
+
+ sadqah1: {
+      type: "sadqah",
+      title: "Sadaqah / lillah ",
+      image: "/sadqa3.png",
+      description: "Give voluntary charity to help those in need",
+      minAmount: 1,
+    },
+
     sadqah: {
       type: "sadqah",
       title: "Sadaqah / lillah ",

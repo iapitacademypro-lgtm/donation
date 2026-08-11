@@ -42,12 +42,19 @@ export default function SupportPage() {
   }, [])
 
   const donationCards = [
+    // {
+    //   id: "animals",
+    //   title: "Qurabni Operation 2026 | Malawi",
+    //   description: " Perform Your Qurbani with FGRF |  A Sunnah of Sacrifice, A Gift of Mercy.",
+    //   images: jamiaImages2,
+    //   alt: "Qurbani Operation 2026 image",
+    // },
     {
-      id: "animals",
-      title: "Qurabni Operation 2026 | Malawi",
-      description: " Perform Your Qurbani with FGRF |  A Sunnah of Sacrifice, A Gift of Mercy.",
-      images: jamiaImages2,
-      alt: "Qurbani Operation 2026 image",
+      id: "sadqah1",
+      title: "SADAQAH / LILLAH",
+      description: "Give voluntary charity to help those in need.",
+      image: "/sadqa3.png",
+      alt: "Sadaqah donation image",
     },
     {
       id: "specialevent",
@@ -70,14 +77,6 @@ export default function SupportPage() {
       description: "Donate livestock to support families",
       image: "/qurbani.jpeg",
       alt: "Animal donation image",
-    },
-   
-    {
-      id: "sadqah",
-      title: "SADAQAH / LILLAH",
-      description: "Give voluntary charity to help those in need",
-      image: "/sadaqah.jpeg",
-      alt: "Sadaqah donation image",
     },
     {
       id: "zakah",
@@ -138,14 +137,14 @@ export default function SupportPage() {
                   src={card.images[jamiaIndex % card.images.length]}
                   alt={card.alt}
                   loading={index < 3 ? "eager" : "lazy"}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-fill"
                 />
               ) : (
                 <img
                   src={card.image || "/placeholder.svg"}
                   alt={card.alt}
                   loading={index < 3 ? "eager" : "lazy"}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-fill"
                 />
               )}
             </div>
