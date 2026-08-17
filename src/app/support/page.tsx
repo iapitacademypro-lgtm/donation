@@ -99,6 +99,14 @@ export default function SupportPage() {
       image: "/meal.jpeg",
       alt: "Meal donation image",
     },
+
+ {
+  id: "meal_distribution",
+  title: "MEAL DISTRIBUTION IN  PHILLIPINES",
+  description: "Help provide nutritious meals to those in need",
+  image: "/phillpine_distibuti_meal.png",
+  alt: "Meal donation image",
+},
     {
       id: "emergency",
       title: "EMERGENCY RELIEF",

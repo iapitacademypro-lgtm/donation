@@ -56,8 +56,8 @@ interface AnimalOption {
 
 interface BaseDonationType {
   title: string
-  image?: string           
-  images?: string[]         
+  image?: string
+  images?: string[]
   description: string
 }
 
@@ -105,7 +105,7 @@ interface AnimalDonation extends BaseDonationType {
 interface EmergencyDonation extends BaseDonationType {
   type: "emergency"
 }
- 
+
 
 type DonationType =
   | MealDonation
@@ -268,29 +268,39 @@ export default function DonatePage() {
       unit: "person",
     },
 
+    meal_distribution: {
+      type: "meal",
+      title: "Serve a Meal in Philippines",
+      image: "/phillpine_distibuti_meal.png",
+      description: "Provide nutritious meals to those in need",
+      pricePerUnit: 1,
+      unit: "person",
+    },
+
+
 
     "maizeflour": {
-    type: "maizeflour",
-   title: "Maize Flour Distribution",
-  image: "/Maize.png", 
-  description: "Provide maize flour to families in rural areas of Malawi. 1 bag = $2.5",
-  pricePerUnit: 2.5,
-  unit: "bag",
-  target: 1500,
-},
+      type: "maizeflour",
+      title: "Maize Flour Distribution",
+      image: "/Maize.png",
+      description: "Provide maize flour to families in rural areas of Malawi. 1 bag = $2.5",
+      pricePerUnit: 2.5,
+      unit: "bag",
+      target: 1500,
+    },
 
     specialevent: {
       type: "specialevent",
       title: "Project - Jamia tul Madina Malawi",
       image: "jamia1.jpg",
-      images: ["/jamia.jpg" , "/web3/img1.jpg", "/web3/img2.jpg", "/web3/img3.jpg", "/web3/img4.jpg", "/web3/img5.jpg"],
+      images: ["/jamia.jpg", "/web3/img1.jpg", "/web3/img2.jpg", "/web3/img3.jpg", "/web3/img4.jpg", "/web3/img5.jpg"],
       description: "State of the Art facility for producing Islamic Scholars. ",
-      minAmount: 1,  
-      
-},
+      minAmount: 1,
+
+    },
 
 
- sadqah1: {
+    sadqah1: {
       type: "sadqah",
       title: "Sadaqah / lillah ",
       image: "/sadqa3.png",
@@ -440,7 +450,7 @@ export default function DonatePage() {
       case "meal":
         return count * (currentDonation as MealDonation).pricePerUnit
       case "maizeflour":
-  return count * (currentDonation as MaizeFlourDonation).pricePerUnit
+        return count * (currentDonation as MaizeFlourDonation).pricePerUnit
 
       case "zakah":
         return calculatedAmount
@@ -454,8 +464,8 @@ export default function DonatePage() {
       case "sadqah":
         return Math.max(amount, (currentDonation as SadqahDonation).minAmount)
       case "specialevent":
-      return Math.max(amount, (currentDonation as SpecialEventDonation).minAmount)
-  
+        return Math.max(amount, (currentDonation as SpecialEventDonation).minAmount)
+
       default:
         return 0
     }
@@ -703,21 +713,21 @@ export default function DonatePage() {
       </div>
 
       <div>
-  <Label 
-    htmlFor="donationComment" 
-    className="text-cyan-600 font-semibold text-base"
-  >
-    Comments (Optional)
-  </Label>
+        <Label
+          htmlFor="donationComment"
+          className="text-cyan-600 font-semibold text-base"
+        >
+          Comments (Optional)
+        </Label>
 
-  <textarea
-    id="donationComment"
-    value={donationComment}
-    onChange={(e) => setDonationComment(e.target.value)}
-    className="mt-2 w-full h-28 p-3 rounded-md border border-blue-300 dark:border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 text-black resize-none"
-    placeholder="Write any message regarding your donation..."
-  ></textarea>
-</div>
+        <textarea
+          id="donationComment"
+          value={donationComment}
+          onChange={(e) => setDonationComment(e.target.value)}
+          className="mt-2 w-full h-28 p-3 rounded-md border border-blue-300 dark:border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 text-black resize-none"
+          placeholder="Write any message regarding your donation..."
+        ></textarea>
+      </div>
 
 
       <div className="bg-yellow-100 dark:bg-yellow-50 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800 text-black">
@@ -867,8 +877,8 @@ export default function DonatePage() {
                     setAmount(val)
                   }}
                   className="w-auto text-center bg-white/70 border-none outline-none font-bold text-2xl rounded-lg shadow-sm"
-                    style={{ width: `${Math.max(String(count).length, 2) + 1}ch` }}
-                    autoFocus
+                  style={{ width: `${Math.max(String(count).length, 2) + 1}ch` }}
+                  autoFocus
                 />
               </motion.span>
               <motion.div whileTap={{ scale: 0.95 }}>
@@ -890,97 +900,97 @@ export default function DonatePage() {
             {renderCommonFields()}
           </motion.div>
         )
-        case "maizeflour":
-  const maizeDonation = currentDonation as MaizeFlourDonation
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="space-y-6"
-    >
-      <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold mb-2 text-cyan-600 dark:text-cyan-400">
-          Maize Flour Distribution
-        </h2>
-        <p className="text-cyan-600 dark:text-cyan-400">
-          1 Bag = ${maizeDonation.pricePerUnit} | Target: {maizeDonation.target} Bags
-        </p>
-      </div>
-
-      {/* Quantity Selector */}
-      <div className="flex items-center justify-center gap-4 mb-6">
-        <motion.div whileTap={{ scale: 0.95 }}>
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => setCount(Math.max(1, count - 1))}
-            disabled={count <= 1}
-            className="h-12 w-12 rounded-full border-2 border-yellow-400 dark:border-yellow-600 hover:bg-yellow-50 dark:hover:bg-yellow-950"
+      case "maizeflour":
+        const maizeDonation = currentDonation as MaizeFlourDonation
+        return (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-6"
           >
-            <Minus className="h-4 w-4 text-yellow-600 dark:text-yellow-400" />
-          </Button>
-        </motion.div>
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold mb-2 text-cyan-600 dark:text-cyan-400">
+                Maize Flour Distribution
+              </h2>
+              <p className="text-cyan-600 dark:text-cyan-400">
+                1 Bag = ${maizeDonation.pricePerUnit} | Target: {maizeDonation.target} Bags
+              </p>
+            </div>
 
-        <motion.span
-          key={count}
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          className="text-2xl font-bold w-16 text-center py-2 px-4 rounded-lg text-cyan-700 dark:text-cyan-800"
-        >
-          <input
-            type="number"
-            min={1}
-            value={count}
-            onChange={(e) => setCount(Math.max(1, Number(e.target.value)))}
-            className="w-auto text-center bg-white/70 border-none outline-none font-bold text-2xl rounded-lg shadow-sm"
-            style={{ width: `${Math.max(String(count).length, 2) + 1}ch` }}
-          />
-        </motion.span>
+            {/* Quantity Selector */}
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <motion.div whileTap={{ scale: 0.95 }}>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => setCount(Math.max(1, count - 1))}
+                  disabled={count <= 1}
+                  className="h-12 w-12 rounded-full border-2 border-yellow-400 dark:border-yellow-600 hover:bg-yellow-50 dark:hover:bg-yellow-950"
+                >
+                  <Minus className="h-4 w-4 text-yellow-600 dark:text-yellow-400" />
+                </Button>
+              </motion.div>
 
-        <motion.div whileTap={{ scale: 0.95 }}>
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => setCount(count + 1)}
-            className="h-12 w-12 rounded-full border-2 border-yellow-400 dark:border-yellow-600 hover:bg-yellow-50 dark:hover:bg-yellow-950"
-          >
-            <Plus className="h-4 w-4 text-yellow-600 dark:text-yellow-400" />
-          </Button>
-        </motion.div>
-      </div>
+              <motion.span
+                key={count}
+                initial={{ scale: 1.2 }}
+                animate={{ scale: 1 }}
+                className="text-2xl font-bold w-16 text-center py-2 px-4 rounded-lg text-cyan-700 dark:text-cyan-800"
+              >
+                <input
+                  type="number"
+                  min={1}
+                  value={count}
+                  onChange={(e) => setCount(Math.max(1, Number(e.target.value)))}
+                  className="w-auto text-center bg-white/70 border-none outline-none font-bold text-2xl rounded-lg shadow-sm"
+                  style={{ width: `${Math.max(String(count).length, 2) + 1}ch` }}
+                />
+              </motion.span>
 
-      {/* Donation Purpose Checkboxes */}
-      <div className="flex justify-center gap-8 mb-6">
-        <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
-          <input
-            type="checkbox"
-            checked={donationPurpose === "Zakaat"}
-            onChange={(e) =>
-              setDonationPurpose(e.target.checked ? "Zakaat" : "")
-            }
-            className="accent-yellow-500 cursor-pointer w-5 h-5"
-          />
-          Zakaat
-        </label>
+              <motion.div whileTap={{ scale: 0.95 }}>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => setCount(count + 1)}
+                  className="h-12 w-12 rounded-full border-2 border-yellow-400 dark:border-yellow-600 hover:bg-yellow-50 dark:hover:bg-yellow-950"
+                >
+                  <Plus className="h-4 w-4 text-yellow-600 dark:text-yellow-400" />
+                </Button>
+              </motion.div>
+            </div>
 
-        <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
-          <input
-            type="checkbox"
-            checked={donationPurpose === "Sadaqah/Lillah"}
-            onChange={(e) =>
-              setDonationPurpose(e.target.checked ? "Sadaqah/Lillah" : "")
-            }
-            className="accent-yellow-500 cursor-pointer w-5 h-5"
-          />
-          Sadaqah / Lillah
-        </label>
-      </div>
+            {/* Donation Purpose Checkboxes */}
+            <div className="flex justify-center gap-8 mb-6">
+              <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={donationPurpose === "Zakaat"}
+                  onChange={(e) =>
+                    setDonationPurpose(e.target.checked ? "Zakaat" : "")
+                  }
+                  className="accent-yellow-500 cursor-pointer w-5 h-5"
+                />
+                Zakaat
+              </label>
 
-      {renderAmountSummary()}
-      {renderCommonFields()}
-    </motion.div>
-  )
+              <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={donationPurpose === "Sadaqah/Lillah"}
+                  onChange={(e) =>
+                    setDonationPurpose(e.target.checked ? "Sadaqah/Lillah" : "")
+                  }
+                  className="accent-yellow-500 cursor-pointer w-5 h-5"
+                />
+                Sadaqah / Lillah
+              </label>
+            </div>
+
+            {renderAmountSummary()}
+            {renderCommonFields()}
+          </motion.div>
+        )
 
 
       case "animals":
@@ -1094,67 +1104,67 @@ export default function DonatePage() {
           </motion.div>
         )
 
- case "specialevent":
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="space-y-6"
-    >
-      <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold mb-2 text-cyan-600 dark:text-cyan-400">
-          Project - Jamia Tul Madina Malawi
-        </h2>
-        <p className="text-cyan-600 dark:text-cyan-400">
-          Choose donation type and enter amount for Jamia Tul Madina
-        </p>
-      </div>
+      case "specialevent":
+        return (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-6"
+          >
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold mb-2 text-cyan-600 dark:text-cyan-400">
+                Project - Jamia Tul Madina Malawi
+              </h2>
+              <p className="text-cyan-600 dark:text-cyan-400">
+                Choose donation type and enter amount for Jamia Tul Madina
+              </p>
+            </div>
 
-      {/* Radio Buttons for Donation Purpose */}
-      <div className="mb-6">
-        <Label className="text-lg font-medium text-blue-900 dark:text-blue-300 mb-2 block text-center">
-          Select Donation Type:
-        </Label>
-        <div className="flex justify-center gap-6 mt-3 flex-wrap">
-          <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
-            <input
-              type="radio"
-              name="donationPurpose"
-              value="Sadaqah/Lillah"
-              checked={donationPurpose === "Sadaqah/Lillah"}
-              onChange={(e) => setDonationPurpose(e.target.value)}
-              className="accent-yellow-500 cursor-pointer w-5 h-5"
-            />
-            Sadaqah / Lillah
-          </label>
+            {/* Radio Buttons for Donation Purpose */}
+            <div className="mb-6">
+              <Label className="text-lg font-medium text-blue-900 dark:text-blue-300 mb-2 block text-center">
+                Select Donation Type:
+              </Label>
+              <div className="flex justify-center gap-6 mt-3 flex-wrap">
+                <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
+                  <input
+                    type="radio"
+                    name="donationPurpose"
+                    value="Sadaqah/Lillah"
+                    checked={donationPurpose === "Sadaqah/Lillah"}
+                    onChange={(e) => setDonationPurpose(e.target.value)}
+                    className="accent-yellow-500 cursor-pointer w-5 h-5"
+                  />
+                  Sadaqah / Lillah
+                </label>
 
-          <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
-            <input
-              type="radio"
-              name="donationPurpose"
-              value="Zakaat"
-              checked={donationPurpose === "Zakaat"}
-              onChange={(e) => setDonationPurpose(e.target.value)}
-              className="accent-yellow-500 cursor-pointer w-5 h-5"
-            />
-            Zakaat
-          </label>
-        </div>
-      </div>
+                <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
+                  <input
+                    type="radio"
+                    name="donationPurpose"
+                    value="Zakaat"
+                    checked={donationPurpose === "Zakaat"}
+                    onChange={(e) => setDonationPurpose(e.target.value)}
+                    className="accent-yellow-500 cursor-pointer w-5 h-5"
+                  />
+                  Zakaat
+                </label>
+              </div>
+            </div>
 
-      {/* Donation Amount Field */}
-      <div className="mb-6 text-center">
-        <Label htmlFor="amount" className="text-lg font-medium text-blue-700 dark:text-blue-300 block mb-2">
-          Donation Amount ($)
-        </Label>
+            {/* Donation Amount Field */}
+            <div className="mb-6 text-center">
+              <Label htmlFor="amount" className="text-lg font-medium text-blue-700 dark:text-blue-300 block mb-2">
+                Donation Amount ($)
+              </Label>
 
-        <div className="flex justify-center items-center w-full">
-          <span className="inline-flex items-center px-5 py-2 rounded-l-lg border border-r-0 border-yellow-400 dark:border-yellow-600 bg-yellow-50 dark:bg-yellow-950/50 text-yellow-600 dark:text-yellow-400 font-medium">
-            $
-          </span>
+              <div className="flex justify-center items-center w-full">
+                <span className="inline-flex items-center px-5 py-2 rounded-l-lg border border-r-0 border-yellow-400 dark:border-yellow-600 bg-yellow-50 dark:bg-yellow-950/50 text-yellow-600 dark:text-yellow-400 font-medium">
+                  $
+                </span>
 
-           <Input
+                <Input
                   id="amount"
                   type="number"
                   min="1"
@@ -1166,13 +1176,13 @@ export default function DonatePage() {
                   className="rounded-l-none border-yellow-400 dark:border-yellow-600 focus:border-yellow-500 text-lg"
                   placeholder="Enter amount"
                 />
-        </div>
-      </div>
+              </div>
+            </div>
 
-      {renderAmountSummary()}
-      {renderCommonFields()}
-    </motion.div>
-  )
+            {renderAmountSummary()}
+            {renderCommonFields()}
+          </motion.div>
+        )
 
 
 
@@ -1355,18 +1365,18 @@ export default function DonatePage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-center mb-8"
             >
-            {Array.isArray(currentDonation.images) && currentDonation.images.length > 0 ? (
-  <ImageCarousel images={currentDonation.images} alt={currentDonation.title} />
-) : (
-  <Image
-    src={currentDonation.image || "/placeholder.svg"}
-    alt={currentDonation.title}
-    width={600}
-    height={400}
-    className="rounded-lg object-cover mx-auto border-4 border-yellow-300 dark:border-yellow-600"
-    priority
-  />
-)}
+              {Array.isArray(currentDonation.images) && currentDonation.images.length > 0 ? (
+                <ImageCarousel images={currentDonation.images} alt={currentDonation.title} />
+              ) : (
+                <Image
+                  src={currentDonation.image || "/placeholder.svg"}
+                  alt={currentDonation.title}
+                  width={600}
+                  height={400}
+                  className="rounded-lg object-cover mx-auto border-4 border-yellow-300 dark:border-yellow-600"
+                  priority
+                />
+              )}
               <p className="mt-4 text-lg text-blue-600 dark:text-blue-400">{currentDonation.description}</p>
             </motion.div>
 
