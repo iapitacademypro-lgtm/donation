@@ -23,14 +23,14 @@ export default function SupportPage() {
     "/qurbani26/qurbani5.jpg",
     "/qurbani26/Qurbani3.jpg",
     "/qurbani26/qurbani6.jpg",
-     "/qurbani26/qurbani2.jpg",
+    "/qurbani26/qurbani2.jpg",
     "/qurbani26/qurbani4.jpg",
-   "/qurbani26/Qurbani23.png",
-     
-     
-  
-    
-     
+    "/qurbani26/Qurbani23.png",
+
+
+
+
+
   ]
 
   // Auto-slide every 3.5 seconds
@@ -63,7 +63,7 @@ export default function SupportPage() {
       images: jamiaImages,
       alt: "Project Jamia tul Madina Malawi image",
     },
-     {
+    {
       id: "maizeflour",
       title: "Maize Flour Distribution",
       description: "In Rural Areas of Malawi to support families in need.",
@@ -100,13 +100,13 @@ export default function SupportPage() {
       alt: "Meal donation image",
     },
 
- {
-  id: "meal_distribution",
-  title: "MEAL DISTRIBUTION IN  PHILLIPINES",
-  description: "Help provide nutritious meals to those in need",
-  image: "/phillpine_distibuti_meal.png",
-  alt: "Meal donation image",
-},
+    {
+      id: "meal_distribution",
+      title: "MEAL DISTRIBUTION IN  PHILLIPINES",
+      description: "Help provide nutritious meals to those in need",
+      image: "/phillpine_distibuti_meal.png",
+      alt: "Meal donation image",
+    },
     {
       id: "emergency",
       title: "EMERGENCY RELIEF",
@@ -114,6 +114,24 @@ export default function SupportPage() {
       image: "/emergency.jpeg",
       alt: "Emergency relief image",
     },
+
+
+  {
+  "id": "phillipne_mouque",
+  "title": "PHILIPPINES MOSQUE",
+  "description": "Support Muslim communities affected by the natural disasters in the Philippines.",
+  "image": "/phillipne_mouque.jpg",
+  "alt": "Philippines Mosque Image"
+},
+
+{
+  "id": "phillipne_floods",
+  "title": "PHILIPPINES FLOOD RELIEF",
+  "description": "Provide urgent aid and relief to families impacted by severe flooding in the Philippines.",
+  "image": "/phillipne_emergency_flood_relef.png",
+  "alt": "Philippines Flood Relief Image"
+}
+
   ]
 
   return (

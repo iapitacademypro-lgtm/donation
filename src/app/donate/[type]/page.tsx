@@ -308,6 +308,24 @@ export default function DonatePage() {
       minAmount: 1,
     },
 
+    phillipne_mouque: {
+      type: "sadqah",
+      title: "Philippines Mosque",
+      image: "/phillipne_mouque.jpg",
+      description:
+        "Support Muslim communities affected by the natural disasters in the Philippines.",
+      minAmount: 1,
+    },
+
+    phillipne_floods: {
+      type: "sadqah",
+      title: "Philippines Flood Relief",
+      image: "/phillipne_emergency_flood_relef.png",
+      description:
+        "Provide urgent aid and relief to families impacted by severe flooding in the Philippines.",
+      minAmount: 1,
+    },
+
     sadqah: {
       type: "sadqah",
       title: "Sadaqah / lillah ",
@@ -1074,12 +1092,14 @@ export default function DonatePage() {
             className="space-y-6"
           >
             <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold mb-2 text-cyan-600 dark:text-cyan-400">Sadaqah</h2>
-              <p className="text-cyan-600 dark:text-cyan-400">Minimum Sadaqah: $1</p>
+              <h2 className="text-2xl font-bold mb-2 text-cyan-600 dark:text-cyan-400">
+                {currentDonation.title}
+              </h2>
+              <p className="text-cyan-600 dark:text-cyan-400">Minimum donation: $1</p>
             </div>
             <div className="mb-6">
               <Label htmlFor="amount" className="text-lg font-medium text-blue-700 dark:text-blue-300">
-                Sadaqah Amount ($)
+                Donation Amount ($)
               </Label>
               <div className="flex mt-2">
                 <span className="inline-flex items-center px-4 rounded-l-lg border border-r-0 border-yellow-400 dark:border-yellow-600 bg-yellow-50 dark:bg-yellow-950/50 text-yellow-600 dark:text-yellow-400 font-medium">

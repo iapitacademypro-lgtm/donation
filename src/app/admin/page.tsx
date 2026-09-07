@@ -318,6 +318,9 @@ export default function AdminDashboard() {
       emergency: "Emergency Relief",
       maizeflour: "Maize Flour",
       specialevent: "Special Event",
+      phillipne_mouque: "Philippines Mosque",
+      phillipne_floods: "Philippines Flood Relief",
+      meal_distribution: "Meal Distribution (Philippines)",
     }
     return labels[type] || type
   }
