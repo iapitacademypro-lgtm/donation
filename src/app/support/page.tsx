@@ -119,7 +119,7 @@ export default function SupportPage() {
   {
   "id": "phillipne_mouque",
   "title": "PHILIPPINES MOSQUE",
-  "description": "Support Muslim communities affected by the natural disasters in the Philippines.",
+  "description": "Help us build a mosque where thousands have embraced Islam.",
   "image": "/phillipne_mouque.jpg",
   "alt": "Philippines Mosque Image"
 },
@@ -128,7 +128,7 @@ export default function SupportPage() {
   "id": "phillipne_floods",
   "title": "PHILIPPINES FLOOD RELIEF",
   "description": "Provide urgent aid and relief to families impacted by severe flooding in the Philippines.",
-  "image": "/phillipne_emergency_flood_relef.png",
+  "image": "/phillipne_emergency_flood_relef.jpg",
   "alt": "Philippines Flood Relief Image"
 }
 

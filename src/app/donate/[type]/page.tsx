@@ -313,14 +313,14 @@ export default function DonatePage() {
       title: "Philippines Mosque",
       image: "/phillipne_mouque.jpg",
       description:
-        "Support Muslim communities affected by the natural disasters in the Philippines.",
+        "Help us build a mosque where thousands have embraced Islam",
       minAmount: 1,
     },
 
     phillipne_floods: {
       type: "sadqah",
       title: "Philippines Flood Relief",
-      image: "/phillipne_emergency_flood_relef.png",
+      image: "/phillipne_emergency_flood_relef.jpg",
       description:
         "Provide urgent aid and relief to families impacted by severe flooding in the Philippines.",
       minAmount: 1,
