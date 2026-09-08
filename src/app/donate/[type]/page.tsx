@@ -643,7 +643,11 @@ export default function DonatePage() {
     return commonFieldsValid && totalAmount > 0
   }
 
-  const renderDonationPurpose = () => (
+  const renderDonationPurpose = () => {
+    // Show the Sadaqah / Zakaat option only on the Philippines Mosque page
+    if (donationType !== "phillipne_mouque") return null
+
+    return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -675,7 +679,8 @@ export default function DonatePage() {
         </label>
       </div>
     </motion.div>
-  )
+    )
+  }
 
   const renderCommonFields = () => (
     <motion.div
