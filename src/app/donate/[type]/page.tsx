@@ -643,6 +643,40 @@ export default function DonatePage() {
     return commonFieldsValid && totalAmount > 0
   }
 
+  const renderDonationPurpose = () => (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="mb-6 bg-yellow-50 dark:bg-yellow-50 p-6 rounded-xl border border-yellow-200 dark:border-yellow-600"
+    >
+      <Label className="text-base font-semibold text-cyan-600 mb-3 block text-center">
+        Donation Type (optional)
+      </Label>
+      <div className="flex justify-center gap-8">
+        <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
+          <input
+            type="checkbox"
+            checked={donationPurpose === "Sadaqah"}
+            onChange={(e) => setDonationPurpose(e.target.checked ? "Sadaqah" : "")}
+            className="accent-yellow-500 cursor-pointer w-5 h-5"
+          />
+          Sadaqah
+        </label>
+
+        <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
+          <input
+            type="checkbox"
+            checked={donationPurpose === "Zakaat"}
+            onChange={(e) => setDonationPurpose(e.target.checked ? "Zakaat" : "")}
+            className="accent-yellow-500 cursor-pointer w-5 h-5"
+          />
+          Zakaat
+        </label>
+      </div>
+    </motion.div>
+  )
+
   const renderCommonFields = () => (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -915,6 +949,7 @@ export default function DonatePage() {
               </motion.div>
             </div>
             {renderAmountSummary()}
+            {renderDonationPurpose()}
             {renderCommonFields()}
           </motion.div>
         )
@@ -978,34 +1013,8 @@ export default function DonatePage() {
               </motion.div>
             </div>
 
-            {/* Donation Purpose Checkboxes */}
-            <div className="flex justify-center gap-8 mb-6">
-              <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={donationPurpose === "Zakaat"}
-                  onChange={(e) =>
-                    setDonationPurpose(e.target.checked ? "Zakaat" : "")
-                  }
-                  className="accent-yellow-500 cursor-pointer w-5 h-5"
-                />
-                Zakaat
-              </label>
-
-              <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={donationPurpose === "Sadaqah/Lillah"}
-                  onChange={(e) =>
-                    setDonationPurpose(e.target.checked ? "Sadaqah/Lillah" : "")
-                  }
-                  className="accent-yellow-500 cursor-pointer w-5 h-5"
-                />
-                Sadaqah / Lillah
-              </label>
-            </div>
-
             {renderAmountSummary()}
+            {renderDonationPurpose()}
             {renderCommonFields()}
           </motion.div>
         )
@@ -1078,6 +1087,7 @@ export default function DonatePage() {
               ))}
             </div>
             {renderAmountSummary()}
+            {renderDonationPurpose()}
             {renderCommonFields()}
             {renderQurbaniFields()}
           </motion.div>
@@ -1119,7 +1129,9 @@ export default function DonatePage() {
                 />
               </div>
             </div>
+
             {renderAmountSummary()}
+            {renderDonationPurpose()}
             {renderCommonFields()}
           </motion.div>
         )
@@ -1139,38 +1151,6 @@ export default function DonatePage() {
               <p className="text-cyan-600 dark:text-cyan-400">
                 Choose donation type and enter amount for Jamia Tul Madina
               </p>
-            </div>
-
-            {/* Radio Buttons for Donation Purpose */}
-            <div className="mb-6">
-              <Label className="text-lg font-medium text-blue-900 dark:text-blue-300 mb-2 block text-center">
-                Select Donation Type:
-              </Label>
-              <div className="flex justify-center gap-6 mt-3 flex-wrap">
-                <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
-                  <input
-                    type="radio"
-                    name="donationPurpose"
-                    value="Sadaqah/Lillah"
-                    checked={donationPurpose === "Sadaqah/Lillah"}
-                    onChange={(e) => setDonationPurpose(e.target.value)}
-                    className="accent-yellow-500 cursor-pointer w-5 h-5"
-                  />
-                  Sadaqah / Lillah
-                </label>
-
-                <label className="flex items-center gap-2 text-black dark:text-gray-900 text-lg cursor-pointer">
-                  <input
-                    type="radio"
-                    name="donationPurpose"
-                    value="Zakaat"
-                    checked={donationPurpose === "Zakaat"}
-                    onChange={(e) => setDonationPurpose(e.target.value)}
-                    className="accent-yellow-500 cursor-pointer w-5 h-5"
-                  />
-                  Zakaat
-                </label>
-              </div>
             </div>
 
             {/* Donation Amount Field */}
@@ -1200,6 +1180,7 @@ export default function DonatePage() {
             </div>
 
             {renderAmountSummary()}
+            {renderDonationPurpose()}
             {renderCommonFields()}
           </motion.div>
         )
@@ -1269,6 +1250,7 @@ export default function DonatePage() {
               </div>
             </div>
             {calculatedAmount > 0 && renderAmountSummary()}
+            {renderDonationPurpose()}
             {renderCommonFields()}
           </motion.div>
         )
@@ -1328,6 +1310,7 @@ export default function DonatePage() {
               )}
             </div>
             {renderAmountSummary()}
+            {renderDonationPurpose()}
             {renderCommonFields()}
           </motion.div>
         )

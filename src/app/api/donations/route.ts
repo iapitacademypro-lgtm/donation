@@ -14,6 +14,7 @@ export async function GET() {
       totalAmount: doc.totalAmount,
       timestamp: doc.timestamp || (doc.createdAt ? doc.createdAt.toISOString() : ""),
       status: (doc.paymentStatus || "pending").toLowerCase(),
+      donationPurpose: doc.donationPurpose || "",
       fullName: doc.fullName,
       whatsappNumber: doc.whatsapp || doc.whatsappNumber,
       emailAddress: doc.email || doc.emailAddress,
