@@ -644,8 +644,9 @@ export default function DonatePage() {
   }
 
   const renderDonationPurpose = () => {
-    // Show the Sadaqah / Zakaat option only on the Philippines Mosque page
-    if (donationType !== "phillipne_mouque") return null
+    // Show the Sadaqah / Zakaat option only on the Philippines Mosque & Flood Relief pages
+    const purposeEnabledTypes = ["phillipne_mouque", "phillipne_floods"]
+    if (!purposeEnabledTypes.includes(donationType)) return null
 
     return (
     <motion.div
